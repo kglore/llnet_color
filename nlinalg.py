@@ -5,7 +5,6 @@ logger = logging.getLogger(__name__)
 import numpy
 
 from theano.gof import Op, Apply
-
 from theano.tensor import as_tensor_variable, dot, DimShuffle, Dot
 from theano.tensor.blas import Dot22
 from theano.tensor.opt import (register_stabilize,
