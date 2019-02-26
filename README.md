@@ -8,7 +8,14 @@ This code is no longer supported as Theano is also no longer supported. However,
 
 No license has been created for the code. Please contact the authors if you wish to use the code for other than academic purposes. Thanks!
 
-## Download the model:
+## Requirements
+
+### Software requirements
+Anaconda 2.7
+Theano 0.9
+CUDA-enabled device to unpickled trained model
+
+### Download the model
 The model is hosted over at BitBucket (our older repository). Please download the following object and place it in the 'model/' folder:
 https://bitbucket.org/kglore/llnet-color/src/master/model/003_model.obj
 
