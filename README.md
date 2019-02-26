@@ -1,8 +1,9 @@
 # LLNet: Low-light Image Enhancement with Deep Learning (Color)
+_By: Kin Gwn Lore, Adedotun Akintayo, Soumik Sarkar_
 
-This repository includes the codes and modules used for running color-LLNet via a Graphical User Interface. Users can choose to train the network from scratch, or to enhance multiple images using a specific trained model. Note that we had hosted on BitBucket before, but those codebase is now severely outdated. Please use GitHub (this repository) instead.
+This is the **official** repository which includes the codes and modules used for running color-LLNet via a Graphical User Interface. Users can choose to train the network from scratch, or to enhance multiple images using a specific trained model. Note that we had hosted on BitBucket before, but those codebase is now severely outdated. Please use GitHub (this repository) instead.
 
-The project code has been updated in 2016 since the publication of ["LLNet: A deep autoencoder approach to natural low-light image enhancement"](https://www.sciencedirect.com/science/article/abs/pii/S003132031630125X) to support color version. This code is no longer supported as Theano is also no longer supported. However, please feel free to try to run the code.
+The project code has been updated in 2016 since the publication of ["LLNet: A deep autoencoder approach to natural low-light image enhancement"](https://www.sciencedirect.com/science/article/abs/pii/S003132031630125X) to support color version. The code is also used to generate results included in my [thesis](https://lib.dr.iastate.edu/etd/15965/). This code is no longer supported as Theano is also no longer supported. However, please feel free to try to run the code.
 
 No license has been created for the code. Please contact the authors if you wish to use the code for other than academic purposes. Thanks!
 
