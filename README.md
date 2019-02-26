@@ -1,4 +1,4 @@
-# LLNet: Low-light Image Enhancement with Deep Learning (Color)#
+# LLNet: Low-light Image Enhancement with Deep Learning (Color)
 
 This repository includes the codes and modules used for running color-LLNet via a Graphical User Interface. Users can choose to train the network from scratch, or to enhance multiple images using a specific trained model.
 
@@ -8,7 +8,11 @@ This code is no longer supported as Theano is also no longer supported. However,
 
 No license has been created for the code. Please contact the authors if you wish to use the code for other than academic purposes. Thanks!
 
-## How do I run the program? ##
+## Download the model:
+The model is hosted over at BitBucket: our older repository.
+https://bitbucket.org/kglore/llnet-color/src/master/model/003_model.obj
+
+## How do I run the program?
 
 Open the terminal and navigate to this directory. Type:
 
@@ -56,7 +60,7 @@ test_set_y      (N x whc)   Clean, bright test data
 
 Where N is the number of examples and w, h are the width and height of the patches, respectively. C is the number of channels (i.e. 3 for RGB images). R vectors, G vectors, and B vectors are horizontally concatenated. Test data are mostly used to plot the test patches; in actual applications we are interested to enhance a single image. Use the test command instead.
 
-## Citation ##
+## Citation
 
 If you wish to cite the work, please use the following citation:
 
