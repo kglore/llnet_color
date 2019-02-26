@@ -60,6 +60,10 @@ test_set_y      (N x whc)   Clean, bright test data
 
 Where N is the number of examples and w, h are the width and height of the patches, respectively. C is the number of channels (i.e. 3 for RGB images). R vectors, G vectors, and B vectors are horizontally concatenated. Test data are mostly used to plot the test patches; in actual applications we are interested to enhance a single image. Use the test command instead.
 
+## Results Sample
+![alt text](https://github.com/kglore/llnet_color/blob/master/readme/samples.png)
+
+
 ## Citation
 
 If you wish to cite the work, please use the following citation:
