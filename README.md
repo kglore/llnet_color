@@ -16,8 +16,9 @@ No license has been created for the code. Please contact the authors if you wish
 - CUDA-enabled device to unpickled trained model
 
 ### Download the model
-Please download the following object and place it in the 'model/' folder:
-https://bitbucket.org/kglore/llnet-color/src/master/model/003_model.obj
+Please download the following object and place it in the 'model/' folder. Download model from:
+- [Bitbucket](https://bitbucket.org/kglore/llnet-color/src/master/model/003_model.obj)
+- [Dropbox](https://www.dropbox.com/s/v2nyndpyur2x3ms/003_model.obj?dl=0)
 
 ## How do I run the program?
 
