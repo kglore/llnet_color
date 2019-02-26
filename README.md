@@ -11,7 +11,7 @@ No license has been created for the code. Please contact the authors if you wish
 ## Requirements
 
 ### Software requirements
-- Anaconda 2.7
+- Anaconda with Python 2.7
 - Theano 0.9
 - CUDA-enabled device to unpickled trained model
 
