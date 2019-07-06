@@ -495,6 +495,22 @@ def test_SdA(finetune_lr=0.1, pretraining_epochs=hp_pretraining_epochs,
             f = file('outputs/model.obj', 'wb')
             cPickle.dump(sda,f, protocol=cPickle.HIGHEST_PROTOCOL)
             f.close()
+            
+            print '     saving weights only...'
+            conformed_W = []
+            conformed_b = []
+            logLayer_W_and_b = []
+            for i in xrange(100):
+                try:
+                    conformed_W.append(sda.dA_layers[i].W.get_value())
+                    conformed_b.append(sda.dA_layers[i].b.get_value())
+                except:
+                    print '...loading stopped at layer %d'%i
+                    logLayer_W_and_b = [sda.logLayer.W.get_value(),
+                                        sda.logLayer.b.get_value()]
+                    break
+            with open('outputs/model_weights.wgt','wb') as ff:
+                cPickle.dump([conformed_W,conformed_b,logLayer_W_and_b],ff)
 
             print '     plotting reconstructed images based on best validation error...'
             plotvar = reconstructed()
@@ -537,7 +553,7 @@ def denoise_overlapped_strides(te_noisy_image,strides=(3,3)):
     te_noisy_image = te_noisy_image.replace('\\','/')
     fname_ext = te_noisy_image.split('/')[-1].split('.')[-1]
     fname = te_noisy_image.split('/')[-1].split('.')[0]
-    shutil.copyfile(te_noisy_image, 'outputs/LLnet_inference_'+fname+'_test'+fname_ext)
+    shutil.copyfile(te_noisy_image, 'outputs/LLnet_inference_'+fname+'_test.'+fname_ext)
 
     test_set_x, te_h,te_w = load_data_overlapped_strides(te_dataset = te_noisy_image, patch_size = patch_size, strides=strides)
     #im_ = test_set_x.get_value()
@@ -621,10 +637,25 @@ if __name__ == '__main__':
     if reply == "Enhance Single/Multiple Images":
 
         # Present model to load
-        model_to_load = fileopenbox(title='Select your model to load.',default='*',filetypes=["*.obj"])
-        f = file(model_to_load, 'rb')
-        sda = cPickle.load(f)
-        f.close()
+        model_to_load = fileopenbox(title='Select your model to load.',default='*',filetypes=["*.wgt","*.obj"])
+        #f = file(model_to_load, 'rb')
+        #sda = cPickle.load(f)
+        #f.close()
+        print '...initializing SDA'
+        sda = SdA(
+            numpy_rng= numpy.random.RandomState(89677),
+            n_ins=prod,
+            hidden_layers_sizes= hp_hlsize,
+            n_outs=prod
+            )
+        print '...loading weights'
+        conformed_W, conformed_b, logLayer_W_and_b = cPickle.load(open(model_to_load,'rb'))
+        for layer,(conformed_W_i,conformed_b_i) in enumerate(zip(conformed_W,conformed_b)):
+            sda.dA_layers[layer].W.set_value(conformed_W_i)
+            sda.dA_layers[layer].b.set_value(conformed_b_i)
+        sda.logLayer.W.set_value(logLayer_W_and_b[0])
+        sda.logLayer.b.set_value(logLayer_W_and_b[1])
+        print '...loading completed'
 
         # Load the test image
         te_noisy_image_list = fileopenbox(title='Select an image to enhance. Multiple images are allowed; hold SHIFT and click to select.',default='*',filetypes=["*.png", ["*.jpg", "*.jpeg", "JPEG Files"] , '*.bmp' , '*.gif' , ["*.jpg", "*.jpeg", "*.gif", "*.png", "Image Files"] ],multiple=True)
