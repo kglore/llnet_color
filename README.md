@@ -17,6 +17,28 @@ No license has been created for the code. Please contact the authors if you wish
 - Anaconda with Python 2.7
 - Theano 0.8
 - CUDA-enabled device to unpickle trained model
+- Easygui: Simple GUI for training/inference
+
+Example installation commands. Please look at req.txt for full package list of the environment configs used to run the code:
+```
+pip install easygui
+conda create -n llnet --file req.txt
+```
+
+You may need to configure your .theanorc file in the home directory (Theano configurations):
+```
+[global]
+device=cuda
+#device=gpu
+#device=cpu
+floatX=float32
+exception_verbosity=high
+#lib.cnmem=0.85
+gpuarray.preallocate=0.85
+
+[nvcc]
+fastmath = True
+```
 
 ### Download the model
 Please download the following object and place it in the 'model/' folder. Download model from:
