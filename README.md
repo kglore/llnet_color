@@ -5,6 +5,8 @@ This is the **official** repository which includes the codes and modules used fo
 
 The project code has been updated in 2016 since the publication of ["LLNet: A deep autoencoder approach to natural low-light image enhancement"](https://www.sciencedirect.com/science/article/abs/pii/S003132031630125X) to support color version. The code is also used to generate results included in my [thesis](https://lib.dr.iastate.edu/etd/15965/). This code is no longer supported as Theano is also no longer supported. However, please feel free to try to run the code.
 
+**NOTE: The model is created in the past but it was using packages which are now many, many versions behind. The current commit (as of June 2019) converts the model object into weights and biases only. The performance of the model may be impacted as a result of numeric/version incompatibilities.**
+
 No license has been created for the code. Please contact the authors if you wish to use the code for other than academic purposes. Thanks!
 
 ![alt text](https://github.com/kglore/llnet_color/blob/master/readme/structure.png)
@@ -13,13 +15,13 @@ No license has been created for the code. Please contact the authors if you wish
 
 ### Software requirements
 - Anaconda with Python 2.7
-- Theano 0.9
+- Theano 0.8
 - CUDA-enabled device to unpickle trained model
 
 ### Download the model
 Please download the following object and place it in the 'model/' folder. Download model from:
-- [Bitbucket](https://bitbucket.org/kglore/llnet-color/src/master/model/003_model.obj)
-- [Dropbox](https://www.dropbox.com/s/v2nyndpyur2x3ms/003_model.obj?dl=0)
+- [Bitbucket](https://bitbucket.org/kglore/llnet-color/src/master/model/003_model.obj) (Obsolete! Will NOT work)
+- [Dropbox](https://www.dropbox.com/s/hxwvxvngqs0j1xj/003_model.wgt?dl=0)
 
 ## How do I run the program?
 
