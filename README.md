@@ -21,8 +21,9 @@ No license has been created for the code. Please contact the authors if you wish
 
 Example installation commands. Please look at req.txt for full package list of the environment configs used to run the code:
 ```
-pip install easygui
 conda create -n llnet --file req.txt
+source activate llnet
+pip install easygui
 ```
 
 You may need to configure your .theanorc file in the home directory (Theano configurations):
