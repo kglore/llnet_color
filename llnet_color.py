@@ -611,10 +611,25 @@ if __name__ == '__main__':
             print '... Runnning algorithm!'
             te_noisy_image = str(sys.argv[2])
             model_to_load = str(sys.argv[3])
-            f = file(model_to_load, 'rb')
-            sda = cPickle.load(f)
-            f.close()
-            denoise_overlapped_strides();
+            #f = file(model_to_load, 'rb')
+            #sda = cPickle.load(f)
+            #f.close()
+            print '...initializing SDA'
+            sda = SdA(
+                numpy_rng= numpy.random.RandomState(89677),
+                n_ins=prod,
+                hidden_layers_sizes= hp_hlsize,
+                n_outs=prod
+                )
+            print '...loading weights'
+            conformed_W, conformed_b, logLayer_W_and_b = cPickle.load(open(model_to_load,'rb'))
+            for layer,(conformed_W_i,conformed_b_i) in enumerate(zip(conformed_W,conformed_b)):
+                sda.dA_layers[layer].W.set_value(conformed_W_i)
+                sda.dA_layers[layer].b.set_value(conformed_b_i)
+            sda.logLayer.W.set_value(logLayer_W_and_b[0])
+            sda.logLayer.b.set_value(logLayer_W_and_b[1])
+            print '...loading completed'
+            denoise_overlapped_strides(te_noisy_image);
             print 'Completed:', te_noisy_image
             exit()
 
