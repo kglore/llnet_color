@@ -156,8 +156,8 @@ nose=1.3.7=py27_2
 notebook=5.7.8=py27_0
 numba=0.43.1=py27h962f231_0
 numexpr=2.6.8=py27hd89afb7_0
-numpy=1.12.1=py27h9378851_1
-numpy-base=1.15.0=py27h1793315_0
+numpy==1.14.6=py27h3b04361_4
+numpy-base=1.14.6=py27h81de0dd_4
 numpydoc=0.8.0=py27_0
 olefile=0.46=py27_0
 openpyxl=2.6.1=py27_1
